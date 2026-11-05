@@ -11,7 +11,7 @@ import jakarta.persistence.Column;
 public class UrlData {
 
     @Id
-    @Column(name = "short_code")
+    @Column(name = "short_code", nullable = false, unique = true, length = 12)
     private String shortCode;
 
     @Column(nullable = false)

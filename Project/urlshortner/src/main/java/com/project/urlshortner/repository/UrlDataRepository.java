@@ -16,5 +16,7 @@ public interface UrlDataRepository extends JpaRepository<UrlData, String> {
            SET u.views = u.views + 1
            WHERE u.shortCode = :shortCode
            """)
-    int incrementViewsByShortCode(@Param("shortCode") String shortCode);
+    int incrementViewsByShortCode(
+            @Param("shortCode") String shortCode
+    );
 }

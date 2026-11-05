@@ -28,13 +28,7 @@ public class UrlshortnerController {
                             "url should not be empty"));
         }
 
-        String shortCode = "generateShortCodeMethod";
-
-        while(urlShortner.contains(shortCode)) {
-            shortCode = "generateShortCodeMethod";
-        }
-
-        urlShortner.put(shortCode, urlDTO.getWebsite());
+        String shortCode = urlShortner.generateAndSaveShortCode(urlDTO.getWebsite());
             return ResponseEntity.status(HttpStatus.ACCEPTED)
                     .body(Map.of("message", shortCode));
     }
