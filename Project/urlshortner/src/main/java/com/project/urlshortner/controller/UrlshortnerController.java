@@ -21,7 +21,7 @@ public class UrlshortnerController {
     }
 
     @PostMapping("/shortCode")
-    public ResponseEntity<?> analytics(@RequestBody UrlDTO urlDTO) {
+    public ResponseEntity<?> shortCode(@RequestBody UrlDTO urlDTO) {
         if(urlDTO.getWebsite() == null || urlDTO.getWebsite().isBlank()){
             return ResponseEntity.badRequest()
                     .body(Map.of("message",
@@ -30,11 +30,11 @@ public class UrlshortnerController {
 
         String shortCode = urlShortner.generateAndSaveShortCode(urlDTO.getWebsite());
             return ResponseEntity.status(HttpStatus.ACCEPTED)
-                    .body(Map.of("message", shortCode));
+                    .body(Map.of("shortCode", shortCode));
     }
 
     @PostMapping("/analytics")
-    public ResponseEntity<?> shortCode(@RequestBody UrlDTO urlDTO) {
+    public ResponseEntity<?> analytics(@RequestBody UrlDTO urlDTO) {
         if(urlDTO.getShortCode() == null || urlDTO.getShortCode().isBlank()){
             return ResponseEntity.badRequest()
                     .body(Map.of("message",

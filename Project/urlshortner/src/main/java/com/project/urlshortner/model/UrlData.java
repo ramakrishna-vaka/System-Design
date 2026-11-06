@@ -14,7 +14,7 @@ public class UrlData {
     @Column(name = "short_code", nullable = false, unique = true, length = 12)
     private String shortCode;
 
-    @Column(nullable = false)
+    @Column(nullable = false,length = 20480)
     private String url;
 
     @Column(nullable = false)
